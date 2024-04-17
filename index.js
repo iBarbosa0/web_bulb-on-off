@@ -1,15 +1,24 @@
-let btn = document.getElementById("toggleBtn");
-
-let bulb = document.getElementById("bulb");
-
-btn.addEventListener("click", toggleBulb);
-
-function toggleBulb(e) {
-     if (btn.textContent. includes("On")) {
-          bulb.src = "/bulb-on.png";
-          btn.textContent = "Turn Off";
-     }else {
-          bulb.src = "/bulb-off.png";
-          btn.textContent = "Turn On";
+function changeImage() {
+     if (
+       document.getElementById("bulbImage").src ===
+       "images/bulb-off.png"
+     ) {
+       document.getElementById("bulbImage").src =
+         "images/bulb-off.png";
+       document.getElementById("switch").innerHTML = "Desligar";
+       document.getElementById("main").classList.remove("lightoff");
+       document.getElementById("main").classList.add("lighton");
+     } else if (
+       document.getElementById("bulbImage").src ===
+       "images/bulb-on.png"
+     ) {
+       document.getElementById("bulbImage").src =
+         "images/bulb-off.png";
+       document.getElementById("switch").innerHTML = "Ligar";
+       document.getElementById("main").classList.add("lightoff");
+       document.getElementById("main").classList.remove("lighton");
      }
-}
+   }
+   
+   document.getElementById("switch").addEventListener("click", changeImage);
+   
